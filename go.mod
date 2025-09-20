@@ -1,4 +1,4 @@
-module clatype
+module github.com/cladamos/clatype
 
 go 1.24.0
 

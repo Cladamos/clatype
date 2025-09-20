@@ -16,8 +16,8 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/muesli/reflow/wordwrap"
 
-	"clatype/components"
-	"clatype/ui"
+	"github.com/cladamos/clatype/components"
+	"github.com/cladamos/clatype/ui"
 )
 
 type Model struct {
