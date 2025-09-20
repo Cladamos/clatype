@@ -91,6 +91,12 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.width, m.height = msg.Width, msg.Height
 
 	case tea.KeyMsg:
+		if msg.Type == tea.KeyRunes {
+			r := msg.Runes[0]
+			if r > unicode.MaxASCII {
+				return m, nil
+			}
+		}
 		switch {
 		case key.Matches(msg, m.keymap.quit):
 			return m, tea.Quit
