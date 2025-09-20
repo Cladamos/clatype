@@ -7,5 +7,5 @@ A terminal-based typing speed test written in Go using [Bubbletea](https://githu
 Make sure you have Go installed (>=1.20).
 
 ```bash
-go install github.com/yourusername/clatype@latest
+go install github.com/cladamos/clatype@latest
 ```
