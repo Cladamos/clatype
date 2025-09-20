@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"strconv"
@@ -34,9 +35,18 @@ type keymap struct {
 	quit    key.Binding
 }
 
-var timeout = time.Second * 30
+var timeout time.Duration
+
+func init() {
+	flag.DurationVar(&timeout, "t", 30*time.Second, "set test duration (e.g. 60s, 2m)")
+}
 
 func main() {
+	flag.Parse()
+	if timeout <= 0 {
+		fmt.Println("Duration must be positive")
+		os.Exit(1)
+	}
 
 	m := initialModel()
 	m.keymap.restart.SetEnabled(false)
