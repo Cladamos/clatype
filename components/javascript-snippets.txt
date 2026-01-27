@@ -1,0 +1,287 @@
+console.log("Hello, World!")
+const x = 42
+let y = "string"
+var z = true
+return true
+console.log(i)
+const arr = [1, 2, 3]
+arr.push(4)
+const obj = { name: "John", age: 30 }
+obj.name = "Jane"
+const sum = (a, b) => a + b
+const square = x => x * x
+this.name = name
+const user = new User("Alice")
+throw new Error("oops")
+console.error(err)
+resolve("done")
+promise.then(result => console.log(result))
+const res = await fetch(url)
+return await res.json()
+const nums = [1, 2, 3, 4, 5]
+const doubled = nums.map(n => n * 2)
+const evens = nums.filter(n => n % 2 === 0)
+const total = nums.reduce((acc, n) => acc + n)
+nums.forEach(n => console.log(n))
+const [first, ...rest] = arr
+const { name, age } = user
+const newObj = { ...obj, city: "NYC" }
+const newArr = [...arr, 6, 7]
+const str = `Hello ${name}`
+setTimeout(() => console.log("delayed"), 1000)
+setInterval(() => console.log("repeat"), 1000)
+const id = setInterval(fn, 1000)
+clearInterval(id)
+const json = JSON.stringify(obj)
+const parsed = JSON.parse(json)
+const keys = Object.keys(obj)
+const values = Object.values(obj)
+const entries = Object.entries(obj)
+Object.assign(target, source)
+const frozen = Object.freeze(obj)
+const sealed = Object.seal(obj)
+const arr2 = Array.from("hello")
+const filled = Array(5).fill(0)
+const found = arr.find(n => n > 2)
+const index = arr.findIndex(n => n > 2)
+const has = arr.includes(3)
+const joined = arr.join(", ")
+const sliced = arr.slice(1, 3)
+const spliced = arr.splice(1, 2)
+arr.sort((a, b) => a - b)
+arr.reverse()
+const upper = str.toUpperCase()
+const lower = str.toLowerCase()
+const trimmed = str.trim()
+const replaced = str.replace("old", "new")
+const split = str.split(",")
+const starts = str.startsWith("Hello")
+const ends = str.endsWith("!")
+const substr = str.substring(0, 5)
+const char = str.charAt(0)
+const code = str.charCodeAt(0)
+const num = parseInt("42")
+const float = parseFloat("3.14")
+const isNum = isNaN(value)
+const finite = isFinite(value)
+Math.random()
+Math.floor(3.7)
+Math.ceil(3.2)
+Math.round(3.5)
+Math.max(1, 2, 3)
+Math.min(1, 2, 3)
+Math.abs(-5)
+Math.pow(2, 3)
+Math.sqrt(16)
+const date = new Date()
+const time = date.getTime()
+const year = date.getFullYear()
+const month = date.getMonth()
+const day = date.getDate()
+const hours = date.getHours()
+const mins = date.getMinutes()
+const secs = date.getSeconds()
+const iso = date.toISOString()
+const locale = date.toLocaleString()
+const regex = /\d+/g
+const match = str.match(regex)
+const test = regex.test(str)
+const exec = regex.exec(str)
+const set = new Set([1, 2, 3])
+set.add(4)
+set.delete(2)
+set.has(1)
+set.clear()
+const map = new Map()
+map.set("key", "value")
+map.get("key")
+map.delete("key")
+map.has("key")
+map.clear()
+const weak = new WeakMap()
+const weakSet = new WeakSet()
+const sym = Symbol("description")
+const sym2 = Symbol.for("key")
+typeof x === "string"
+x instanceof Array
+"name" in obj
+delete obj.name
+const proxy = new Proxy(obj, handler)
+const reflected = Reflect.get(obj, "name")
+Promise.all([p1, p2, p3])
+Promise.race([p1, p2])
+Promise.resolve(value)
+Promise.reject(error)
+yield 1
+yield 2
+it.next()
+const buf = new ArrayBuffer(16)
+const view = new DataView(buf)
+const arr8 = new Uint8Array(buf)
+const arr16 = new Uint16Array(buf)
+localStorage.setItem("key", "value")
+const val = localStorage.getItem("key")
+localStorage.removeItem("key")
+localStorage.clear()
+sessionStorage.setItem("key", "value")
+document.getElementById("id")
+document.querySelector(".class")
+document.querySelectorAll("div")
+document.createElement("div")
+elem.appendChild(child)
+elem.removeChild(child)
+elem.innerHTML = "<p>text</p>"
+elem.textContent = "text"
+elem.setAttribute("class", "active")
+elem.getAttribute("class")
+elem.classList.add("active")
+elem.classList.remove("active")
+elem.classList.toggle("active")
+elem.addEventListener("click", handler)
+elem.removeEventListener("click", handler)
+event.preventDefault()
+event.stopPropagation()
+window.location.href = "/page"
+window.open(url, "_blank")
+window.alert("message")
+const confirmed = window.confirm("Sure?")
+const input = window.prompt("Enter name:")
+console.log("message")
+console.error("error")
+console.warn("warning")
+console.table(data)
+console.time("label")
+console.timeEnd("label")
+export default MyComponent
+export { func1, func2 }
+import React from "react"
+import { useState } from "react"
+const [state, setState] = useState(0)
+return () => cleanup()
+const ref = useRef(null)
+const memo = useMemo(() => compute(), [deps])
+const cb = useCallback(() => {}, [deps])
+const ctx = useContext(MyContext)
+fetch(url).then(res => res.json())
+axios.get(url).then(res => console.log(res))
+axios.post(url, data)
+axios.put(url, data)
+axios.delete(url)
+req.params.id
+req.query.search
+req.body.name
+res.send("Hello")
+res.json({ data: "value" })
+res.status(404).send("Not Found")
+res.redirect("/home")
+app.get("/", handler)
+app.post("/api", handler)
+app.use(middleware)
+app.listen(3000)
+router.get("/users", handler)
+router.post("/users", handler)
+app.use("/api", router)
+mongoose.connect(uri)
+const schema = new Schema({ name: String })
+const Model = mongoose.model("User", schema)
+await Model.find()
+await Model.findById(id)
+await Model.findOne({ name: "John" })
+await Model.create({ name: "Jane" })
+await Model.updateOne({ _id: id }, data)
+await Model.deleteOne({ _id: id })
+bcrypt.hash(password, 10)
+bcrypt.compare(password, hash)
+jwt.sign(payload, secret)
+jwt.verify(token, secret)
+dotenv.config()
+process.env.PORT
+process.exit(0)
+process.cwd()
+process.argv
+__dirname
+__filename
+require("module")
+module.exports = fn
+exports.fn = fn
+fs.readFile(path, "utf8", callback)
+fs.writeFile(path, data, callback)
+fs.readFileSync(path, "utf8")
+fs.writeFileSync(path, data)
+fs.existsSync(path)
+fs.unlinkSync(path)
+fs.mkdirSync(path)
+fs.readdirSync(path)
+path.join("a", "b", "c")
+path.resolve("a", "b")
+path.basename(p)
+path.dirname(p)
+path.extname(p)
+http.createServer(handler)
+server.listen(3000)
+https.createServer(options, handler)
+url.parse(urlString)
+querystring.parse(str)
+querystring.stringify(obj)
+crypto.randomBytes(16)
+crypto.createHash("sha256")
+hash.update(data)
+hash.digest("hex")
+stream.pipe(destination)
+readable.on("data", chunk => {})
+writable.write(chunk)
+writable.end()
+buffer.toString("utf8")
+Buffer.from("string")
+Buffer.concat([buf1, buf2])
+buf.slice(0, 10)
+setTimeout(fn, 1000)
+clearTimeout(timer)
+setImmediate(fn)
+process.nextTick(fn)
+async function getData() {}
+await promise
+try {} catch (err) {}
+finally {}
+class MyClass {}
+constructor(name) {}
+static method() {}
+get property() {}
+set property(val) {}
+super.method()
+extends BaseClass {}
+new MyClass()
+this.property
+null
+undefined
+NaN
+Infinity
+true
+false
+0
+1
+""
+[]
+{}
+function fn() {}
+const fn = function() {}
+() => {}
+if (condition) {}
+else if (other) {}
+else {}
+for (let i = 0; i < 10; i++) {}
+while (condition) {}
+do {} while (condition)
+switch (value) {}
+case 1:
+break
+default:
+continue
+return value
+throw error
+typeof value
+void 0
+new Constructor()
+this
+arguments
+...args

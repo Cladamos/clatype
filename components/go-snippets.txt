@@ -1,0 +1,321 @@
+fmt.Println("Hello, World!")
+var x int = 42
+return true
+fmt.Println(i)
+Name string
+return a + b
+return err
+slice := make([]int, 0, 10)
+slice = append(slice, 1)
+m := make(map[string]int)
+m["key"] = 42
+ch := make(chan int, 1)
+ch <- 42
+fmt.Println("goroutine")
+defer file.Close()
+fmt.Println("one")
+fmt.Println("two")
+Read(p []byte) (n int, err error)
+var wg sync.WaitGroup
+wg.Add(1)
+wg.Wait()
+ctx := context.Background()
+case msg := <-ch:
+fmt.Println(msg)
+fmt.Println("no message")
+return u.Name
+import "fmt"
+import "errors"
+const MaxSize = 100
+var ErrNotFound = errors.New("not found")
+type Option func(*Config)
+c.Timeout = d
+fmt.Println("found")
+fmt.Println(k, v)
+s := []int{1, 2, 3}
+s = s[1:]
+return nil
+var mu sync.Mutex
+mu.Lock()
+defer mu.Unlock()
+addr string
+return &Server{addr: addr}
+resp, err := http.Get(url)
+log.Fatal(err)
+defer resp.Body.Close()
+json.NewEncoder(w).Encode(data)
+r := mux.NewRouter()
+r.HandleFunc("/", handler)
+db, err := sql.Open("postgres", dsn)
+rows, err := db.Query("SELECT * FROM users")
+var u User
+rows.Scan(&u.Name, &u.Age)
+b, err := json.Marshal(user)
+err = json.Unmarshal(b, &user)
+f, err := os.Open("file.txt")
+scanner := bufio.NewScanner(f)
+line := scanner.Text()
+t := time.Now()
+d := time.Since(t)
+time.Sleep(time.Second)
+s := strings.Split(text, ",")
+s = strings.Join(parts, " ")
+n, err := strconv.Atoi("42")
+i := strconv.Itoa(42)
+path := filepath.Join("dir", "file.txt")
+fmt.Println("Go file")
+var buf bytes.Buffer
+buf.WriteString("hello")
+re := regexp.MustCompile(`\d+`)
+matches := re.FindAllString(s, -1)
+sort.Strings(names)
+sort.Ints(numbers)
+hash := sha256.Sum256(data)
+encoded := base64.StdEncoding.EncodeToString(b)
+u, err := url.Parse(rawURL)
+q := u.Query()
+q.Set("key", "value")
+req, err := http.NewRequest("POST", url, body)
+req.Header.Set("Content-Type", "json")
+client := &http.Client{Timeout: 10}
+resp, err := client.Do(req)
+var i interface{} = "hello"
+s, ok := i.(string)
+String() string
+panic(msg)
+recover()
+panic("fatal error")
+go test -v ./...
+go build -o app main.go
+go mod init example.com/myapp
+go get github.com/pkg/errors
+Port int `json:"port"`
+Host string `json:"host"`
+return errors.New("port required")
+ctx, cancel := context.WithTimeout(ctx, 5)
+defer cancel()
+return ctx.Err()
+return result
+fmt.Println("only once")
+atomic.AddInt64(&counter, 1)
+val := atomic.LoadInt64(&counter)
+Data interface{}
+Err error
+fmt.Println("worker", id, "job", j)
+t.Execute(w, data)
+log.SetFlags(log.LstdFlags)
+log.Printf("error: %v", err)
+flag.Parse()
+os.Getenv("HOME")
+os.Setenv("KEY", "value")
+cmd := exec.Command("ls", "-la")
+output, err := cmd.Output()
+signal.Notify(sig, os.Interrupt)
+<-sig
+ioutil.ReadFile("file.txt")
+ioutil.WriteFile("file.txt", data, 0644)
+info, err := os.Stat("file.txt")
+fmt.Println("file not found")
+err = os.MkdirAll("path/to/dir", 0755)
+err = os.RemoveAll("path/to/dir")
+wd, err := os.Getwd()
+err = os.Chdir("/tmp")
+type User struct {
+func main() {
+if x > 0 {
+for i := 0; i < 10; i++ {
+func add(a, b int) int {
+err := doSomething()
+if err != nil {
+go func() {
+switch x {
+case 1:
+case 2:
+type Reader interface {
+select {
+default:
+func (u *User) String() string {
+type Server struct {
+func NewServer(addr string) *Server {
+if filepath.Ext(path) == ".go" {
+type Stringer interface {
+func assert(condition bool, msg string) {
+if !condition {
+type Config struct {
+func (c *Config) Validate() error {
+if c.Port == 0 {
+return nil
+case <-ctx.Done():
+case result := <-ch:
+var once sync.Once
+once.Do(func() {
+type Result struct {
+func worker(id int, jobs <-chan int) {
+for j := range jobs {
+flag.StringVar(&host, "host", "localhost")
+sig := make(chan os.Signal, 1)
+if os.IsNotExist(err) {
+http.ListenAndServe(":8080", nil)
+w.Write([]byte("Hello"))
+r.Method == "POST"
+r.URL.Path == "/api"
+http.Error(w, "Not Found", 404)
+http.Redirect(w, r, "/", 301)
+cookie := &http.Cookie{Name: "token"}
+http.SetCookie(w, cookie)
+c, err := r.Cookie("token")
+r.ParseForm()
+r.FormValue("name")
+r.PostFormValue("email")
+file, _, err := r.FormFile("upload")
+io.Copy(dst, src)
+io.ReadAll(r.Body)
+bytes.NewReader(data)
+strings.NewReader("text")
+bufio.NewWriter(w)
+bufio.NewReader(r)
+scanner.Scan()
+writer.Flush()
+gzip.NewWriter(w)
+gzip.NewReader(r)
+json.NewDecoder(r).Decode(&v)
+xml.Marshal(v)
+xml.Unmarshal(data, &v)
+yaml.Marshal(v)
+yaml.Unmarshal(data, &v)
+toml.Decode(data, &v)
+csv.NewReader(r)
+csv.NewWriter(w)
+template.ParseFiles("tmpl.html")
+tmpl.Execute(w, data)
+rand.Intn(100)
+rand.Float64()
+rand.Seed(time.Now().Unix())
+math.Max(a, b)
+math.Min(a, b)
+math.Abs(x)
+math.Sqrt(x)
+math.Pow(x, y)
+math.Floor(x)
+math.Ceil(x)
+math.Round(x)
+strings.Contains(s, substr)
+strings.HasPrefix(s, prefix)
+strings.HasSuffix(s, suffix)
+strings.ToLower(s)
+strings.ToUpper(s)
+strings.TrimSpace(s)
+strings.Trim(s, cutset)
+strings.Replace(s, old, new, -1)
+strings.ReplaceAll(s, old, new)
+strings.Count(s, substr)
+strings.Index(s, substr)
+strings.LastIndex(s, substr)
+bytes.Contains(b, subslice)
+bytes.Equal(a, b)
+bytes.Compare(a, b)
+bytes.Join(slices, sep)
+path.Join("a", "b", "c")
+path.Base(p)
+path.Dir(p)
+path.Ext(p)
+filepath.Walk(root, walkFn)
+filepath.Glob("*.go")
+filepath.Abs(path)
+filepath.Rel(base, target)
+os.Create("file.txt")
+os.Open("file.txt")
+os.OpenFile(name, flag, perm)
+os.Remove("file.txt")
+os.Rename(old, new)
+os.Mkdir("dir", 0755)
+os.ReadDir("dir")
+os.Getwd()
+os.Chdir("dir")
+os.Chmod("file", 0644)
+os.Chown("file", uid, gid)
+ioutil.TempFile("", "prefix")
+ioutil.TempDir("", "prefix")
+fmt.Sprintf("%s %d", str, num)
+fmt.Fprintf(w, "%s", str)
+fmt.Errorf("error: %w", err)
+errors.Is(err, target)
+errors.As(err, &target)
+errors.Unwrap(err)
+context.WithCancel(parent)
+context.WithDeadline(parent, deadline)
+context.WithValue(parent, key, val)
+ctx.Value(key)
+sync.NewCond(&mu)
+cond.Wait()
+cond.Signal()
+cond.Broadcast()
+atomic.StoreInt64(&val, new)
+atomic.CompareAndSwapInt64(&val, old, new)
+time.After(duration)
+time.Tick(duration)
+time.NewTicker(duration)
+ticker.Stop()
+time.Parse(layout, value)
+time.Format(layout)
+url.QueryEscape(s)
+url.QueryUnescape(s)
+url.PathEscape(s)
+url.PathUnescape(s)
+base64.StdEncoding.DecodeString(s)
+hex.EncodeToString(b)
+hex.DecodeString(s)
+md5.Sum(data)
+sha1.Sum(data)
+hmac.New(sha256.New, key)
+h.Write(data)
+h.Sum(nil)
+aes.NewCipher(key)
+cipher.NewGCM(block)
+gcm.Seal(nil, nonce, plaintext, nil)
+gcm.Open(nil, nonce, ciphertext, nil)
+rsa.GenerateKey(rand.Reader, 2048)
+rsa.EncryptOAEP(hash, rand, pub, msg, nil)
+rsa.DecryptOAEP(hash, rand, priv, msg, nil)
+x509.ParseCertificate(der)
+pem.Encode(w, block)
+pem.Decode(data)
+tls.LoadX509KeyPair(certFile, keyFile)
+net.Listen("tcp", ":8080")
+conn, err := listener.Accept()
+conn.Close()
+conn.Read(buf)
+conn.Write(data)
+net.Dial("tcp", "localhost:8080")
+net.LookupHost(host)
+net.LookupIP(host)
+net.ParseIP(s)
+ip.String()
+regexp.Match(pattern, b)
+regexp.MatchString(pattern, s)
+re.FindString(s)
+re.FindAllString(s, -1)
+re.ReplaceAllString(s, repl)
+re.Split(s, -1)
+unicode.IsLetter(r)
+unicode.IsDigit(r)
+unicode.IsSpace(r)
+unicode.ToLower(r)
+unicode.ToUpper(r)
+utf8.RuneCountInString(s)
+utf8.DecodeRuneInString(s)
+utf8.Valid(b)
+reflect.TypeOf(v)
+reflect.ValueOf(v)
+v.Kind()
+v.Interface()
+v.Field(i)
+v.Method(i)
+t.NumField()
+t.Field(i)
+runtime.NumCPU()
+runtime.GOMAXPROCS(n)
+runtime.NumGoroutine()
+runtime.GC()
+debug.PrintStack()
+debug.SetGCPercent(n)

@@ -36,9 +36,11 @@ type keymap struct {
 }
 
 var timeout time.Duration
+var language string
 
 func init() {
 	flag.DurationVar(&timeout, "t", 30*time.Second, "set test duration (e.g. 60s, 2m)")
+	flag.StringVar(&language, "l", "english", "set language (english, go, javascript)")
 }
 
 func main() {
@@ -70,7 +72,7 @@ func initialModel() Model {
 			restart: key.NewBinding(key.WithKeys("ctrl+r"), key.WithHelp("ctrl+r", "restart")),
 		},
 		help:      help.New(),
-		wordData:  components.GenerateWords(),
+		wordData:  components.GenerateWords(language),
 		textInput: ti,
 	}
 }
