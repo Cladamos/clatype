@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strconv"
 	"strings"
 	"time"
 	"unicode"
@@ -22,12 +21,15 @@ import (
 )
 
 type Model struct {
-	width, height int
-	timer         timer.Model
-	wordData      string
-	keymap        keymap
-	help          help.Model
-	textInput     textinput.Model
+	width, height   int
+	timer           timer.Model
+	wordData        string
+	keymap          keymap
+	help            help.Model
+	textInput       textinput.Model
+	wpmHistory      []int
+	accuracyHistory []int
+	lastTick        int
 }
 
 type keymap struct {
@@ -113,6 +115,16 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 		m.timer, cmd = m.timer.Update(msg)
 
+		// Capture metrics every second
+		elapsed := timeout - m.timer.Timeout
+		currentSecond := int(elapsed.Seconds())
+		if currentSecond > m.lastTick && currentSecond > 0 {
+			m.lastTick = currentSecond
+			wpm, accuracy := components.CalculateWpm(m.wordData, m.textInput.Value(), elapsed)
+			m.wpmHistory = append(m.wpmHistory, int(wpm))
+			m.accuracyHistory = append(m.accuracyHistory, int(accuracy))
+		}
+
 		if m.timer.Timedout() {
 			m.keymap.restart.SetEnabled(true)
 			m.textInput.Blur()
@@ -143,10 +155,10 @@ func (m Model) View() string {
 
 	if m.timer.Timedout() {
 		wpm, accuracy := components.CalculateWpm(m.wordData, m.textInput.Value(), timeout)
+		chart := components.RenderPerformanceChart(int(wpm), int(accuracy), m.wpmHistory, m.accuracyHistory, m.width, timeout)
 
 		s = lipgloss.JoinVertical(lipgloss.Center,
-			ui.WpmScore("Your wpm is "+strconv.Itoa(int(wpm))),
-			ui.WpmScore("Your accuracy is "+strconv.Itoa(int(accuracy))+"%"),
+			chart,
 			m.helpView(),
 		)
 	}

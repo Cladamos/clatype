@@ -1,6 +1,8 @@
 package components
 
-import "time"
+import (
+	"time"
+)
 
 func CalculateWpm(target, input string, elapsed time.Duration) (wpm float64, accuracy float64) {
 	if elapsed <= 0 {
