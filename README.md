@@ -9,6 +9,7 @@ Make sure you have Go installed (>=1.20).
 ```bash
 go install github.com/cladamos/clatype@latest
 ```
+If the command isn't recognized after installation, ensure your Go bin folder is in your PATH
 
 ## Usage
 
